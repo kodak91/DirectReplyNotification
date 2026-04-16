@@ -20,7 +20,7 @@ class MyNotificationReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         //getting the remote input bundle from intent
-        val remoteInput = RemoteInput.getResultsFromIntent(intent)
+        val remoteInput = intent?.let { RemoteInput.getResultsFromIntent(it) }
         //if there is some input
         if (remoteInput != null) {
             //getting the input value
