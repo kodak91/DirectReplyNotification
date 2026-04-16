@@ -50,11 +50,11 @@ class MainActivity : AppCompatActivity() {
     private fun displayNotification() {
         //Pending intent for a notification button named More
         val morePendingIntent = PendingIntent.getBroadcast(this, ConstantResource.REQUEST_CODE_MORE, Intent(this, MyNotificationReceiver::class.java)
-                .putExtra(ConstantResource.KEY_MORE, ConstantResource.REQUEST_CODE_MORE), PendingIntent.FLAG_UPDATE_CURRENT)
+                .putExtra(ConstantResource.KEY_MORE, ConstantResource.REQUEST_CODE_MORE), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
         //Pending intent for a notification button help
         val helpPendingIntent = PendingIntent.getBroadcast(this, ConstantResource.REQUEST_CODE_HELP, Intent(this, MyNotificationReceiver::class.java)
-                .putExtra(ConstantResource.KEY_HELP, ConstantResource.REQUEST_CODE_HELP), PendingIntent.FLAG_UPDATE_CURRENT)
+                .putExtra(ConstantResource.KEY_HELP, ConstantResource.REQUEST_CODE_HELP), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
         //We need this object for getting direct input from notification
         val remoteInput = RemoteInput.Builder(ConstantResource.NOTIFICATION_REPLY)
